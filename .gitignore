@@ -24,6 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # wrangler files
+**/.wrangler/
 **/.wrangler
 .dev.vars
 
