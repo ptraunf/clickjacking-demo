@@ -1,5 +1,5 @@
 # Clickjacking Demo
-In this demo, the "attacker's" website (on `http://localhost:66660`) embeds a vulnerable target website (on `http://localhost:3333`) in a translucent iframe and places it over a button which the user is invited to click.
+In this demo, the attacker's website (on `http://localhost:6660`) embeds a vulnerable target website (on `http://localhost:3333`) in a translucent iframe and places it over a button which the user is invited to click.
 When the user attempts to click the button, the target website is clicked instead, as indicated by the alert message.
 
 1. Run 
