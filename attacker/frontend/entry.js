@@ -1,6 +1,6 @@
 import "./style.css";
 function onButtonClick(event) {
-    alert("Clicked the button!");
+    alert("Clicked the bait button!");
 }
 
 function handleVisibilityCheckboxClicked(checkbox) {
