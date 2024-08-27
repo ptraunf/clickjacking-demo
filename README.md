@@ -1,5 +1,6 @@
 # Clickjacking Demo
-In this demo, the attacker's website (on `http://localhost:6660`) embeds a vulnerable target website (on `http://localhost:3333`) in a translucent iframe and places it over a button which the user is invited to click.
+In this demo, the attacker's website (on `http://localhost:6660`) embeds a vulnerable target website (on `http://localhost:3333`) in a semi-transparent iframe and places it over a button.
+
 When the user attempts to click the button, the target website is clicked instead, as indicated by the alert message.
 
 1. Run 
@@ -11,6 +12,8 @@ npm run demo
 ```
 
 2. Navigate a browser to `http://localhost:6660` (the "attacker's" website)
+
+
 3. Click the button 
 
 ## Clickjacking Mitigations

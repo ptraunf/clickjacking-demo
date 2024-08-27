@@ -29,6 +29,7 @@
         }
 
         #bait-button {
+            font-weight: bold;
             position: absolute;
             z-index: 1;
             margin-top: 1vmin;
@@ -49,7 +50,7 @@
             font-size: small;
         }
     </style>
-    <title>iframe demos</title>
+    <title>Clickjack Attack</title>
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -73,7 +74,7 @@
         </div>
         <div>
             <label for="opacity-slider">Adjust iframe opacity:</label>
-            <input type="range" min=".0001" max="1" step=".01" class="slider" id="opacity-slider">
+            <input type="range" min=".0001" value=".25" max="1" step=".01" class="slider" id="opacity-slider">
         </div>
     </div>
 </div>
