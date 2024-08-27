@@ -31,7 +31,7 @@ attackerServer.listen(attackerPort, () => {
     attackerLog(`listening on port ${attackerPort}`);
 });
 
-const targetPort = 54321;
+const targetPort = 3333;
 targetServer.listen(targetPort, () => {
     targetLog(`listening on port ${targetPort}`);
 });
