@@ -5,7 +5,7 @@ export const attackerLog = function (...args) {
     console.log(`ATTACKER: ${args.join(" ")}`);
 }
 
-attackerServer.use(express.static('attacker/frontend'));
+attackerServer.use(express.static('attacker/dist'));
 attackerServer.use((req, res, next) => {
     attackerLog(`${req.method} ${req.originalUrl}`);
     next()

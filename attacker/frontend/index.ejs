@@ -9,9 +9,18 @@
     />
     <link rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😈</text></svg>">
-    <link rel="stylesheet" href="/style.css"/>
 
     <style>
+        body {
+            --primary-font-color: #a3d3f3;
+            --background-color: #0a0a40;
+            --font-size: calc(8px + 2vmin);
+
+            font-family: monospace;
+            color: var(--primary-font-color);
+            background-color: var(--background-color);
+            font-size: var(--font-size);
+        }
         #layout {
             display: flex;
             flex-direction: column;
@@ -65,7 +74,7 @@
         <p>You're a winner!</p>
 
         <button id="bait-button" onclick="onButtonClick">Click here to win $1 Trillion!!!</button>
-        <iframe id="target-iframe" src="http://localhost:3333/target.html">
+        <iframe id="target-iframe" src="<%= targetSrc %>">
         </iframe>
 
         <div>

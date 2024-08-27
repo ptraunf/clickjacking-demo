@@ -1,4 +1,3 @@
-import express from 'express';
 import {targetLog, targetPort, targetServer} from "./target/server.js";
 import {attackerLog, attackerPort, attackerServer} from "./attacker/server.js"
 

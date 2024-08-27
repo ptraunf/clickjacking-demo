@@ -8,6 +8,8 @@
     "clean-install": "npm run clean; npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "demo": "NODE_ENV=development node server.js",
+    "build:attacker:dev": "NODE_ENV=development webpack --mode=development --config webpack.attacker.base.js",
+    "build:attacker:prod": "NODE_ENV=production webpack --mode=production --config webpack.attacker.base.js",
     "deploy:attacker": "cd attacker && wrangler pages deploy",
     "deploy:target": "cd target && wrangler pages deploy",
     "deploy": "npm run deploy:target && npm run deploy:attacker"
@@ -17,5 +19,12 @@
   "description": "",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "html-webpack-plugin": "^5.6.0",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^6.0.1"
   }
 }
