@@ -2,6 +2,7 @@
   "name": "clickjacking-demo",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf ./attacker/dist/",
     "clean-node-modules": "find . -type d -name \"node_modules\" -exec rm -rf {} \\;",
@@ -14,7 +15,7 @@
     "serve:target:dev": "NODE_ENV=development node target/server.js",
     "serve:attacker:dev": "NODE_ENV=development node attacker/server.js",
     "serve:dev": "NODE_ENV=development node server.js",
-    "demo": "npm run build:dev && serve:dev",
+    "demo": "npm run build:dev && npm run serve:dev",
     "preview:attacker": "npm run build:attacker:dev && cd attacker && wrangler pages dev --port 6660 ./dist ",
     "preview:target": "cd target && wrangler pages dev --port 3333 ./frontend",
     "deploy:attacker": "npm run build && cd attacker && wrangler pages deploy",
