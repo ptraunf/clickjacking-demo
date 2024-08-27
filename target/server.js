@@ -14,3 +14,7 @@ targetServer.use((req, res, next) => {
 });
 
 export const targetPort = 3333;
+
+targetServer.listen(targetPort, () => {
+    targetLog(`listening on port ${targetPort}`);
+});

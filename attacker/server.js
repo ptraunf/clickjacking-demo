@@ -11,3 +11,6 @@ attackerServer.use((req, res, next) => {
     next()
 });
 export const attackerPort = 6660;
+attackerServer.listen(attackerPort, () => {
+    attackerLog(`listening on port ${attackerPort}`);
+});

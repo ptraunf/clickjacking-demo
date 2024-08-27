@@ -1,1 +1,0 @@
-// Dummy entry-point file required by webpack; code is in the HTML template (template.ejs)

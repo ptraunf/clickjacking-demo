@@ -12,9 +12,12 @@
     "build:attacker:prod": "NODE_ENV=production webpack --mode=production --config webpack.attacker.js",
     "build:dev": "npm run build:attacker:dev",
     "build": "npm run build:attacker:prod",
-    "demo": "npm run build:dev && NODE_ENV=development node server.js",
-    "preview:attacker": "npm run build && cd attacker && wrangler pages dev ./dist",
-    "preview:target" : "cd target && wrangler pages dev ./frontend",
+    "serve:target:dev": "NODE_ENV=development node target/server.js",
+    "serve:attacker:dev": "NODE_ENV=development node attacker/server.js",
+    "serve:dev": "NODE_ENV=development node server.js",
+    "demo": "npm run build:dev && serve:dev",
+    "preview:attacker": "npm run build:attacker:dev && cd attacker && wrangler pages dev --port 6660 ./dist ",
+    "preview:target": "cd target && wrangler pages dev --port 3333 ./frontend",
     "deploy:attacker": "npm run build && cd attacker && wrangler pages deploy",
     "deploy:target": "cd target && wrangler pages deploy",
     "deploy": "npm run deploy:target && npm run deploy:attacker"
@@ -27,7 +30,9 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240729.0",
+    "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.1",
     "webpack": "^5.93.0",
     "webpack-cli": "^5.1.4",
     "wrangler": "^3.68.0"

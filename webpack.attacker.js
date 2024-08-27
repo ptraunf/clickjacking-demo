@@ -1,5 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {fileURLToPath} from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -23,7 +24,7 @@ function getTargetIframeSrc(env) {
 export default (env, argv) => {
     const targetSrcUrl = getTargetIframeSrc(argv.mode);
     return {
-        entry: "./attacker/frontend/dummy.js",
+        entry: "./attacker/frontend/entry.js",
         plugins: [
             new HtmlWebpackPlugin({
                 template: './attacker/frontend/index.ejs',
@@ -31,9 +32,15 @@ export default (env, argv) => {
                     targetSrc: targetSrcUrl,
                 }
             }),
+            new MiniCssExtractPlugin(),
         ],
         module: {
-            rules: [],
+            rules: [
+                {
+                    test: /\.css$/i,
+                    use: [MiniCssExtractPlugin.loader, "css-loader"],
+                }
+            ],
         },
         output: {
             filename: "bundle.js",
@@ -41,6 +48,7 @@ export default (env, argv) => {
             publicPath: "/",
             clean: true,
         },
+        devtool: 'inline-source-map',
         performance: {
             maxEntrypointSize: 512000,
             maxAssetSize: 4800000
