@@ -1,13 +1,37 @@
 import express from 'express';
 
-const app = express();
-app.use(express.static('attacker'))
+const attackerServer = express();
+const targetServer = express();
 
-app.get("/hello", (req, res) => {
-    res.send("hello");
+function targetLog(...args) {
+    console.log(`TARGET: ${args.join(" ")}`);
+}
+function attackerLog(...args) {
+    console.log(`ATTACKER: ${args.join(" ")}`);
+}
+
+attackerServer.use(express.static('attacker'));
+attackerServer.use((req, res, next) => {
+    attackerLog(`${req.method} ${req.originalUrl}`);
+    next()
 });
 
-const port = 8080
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
-})
+targetServer.use(express.static('target'));
+targetServer.use((req, res, next) => {
+    targetLog(`${req.method} ${req.originalUrl}`);
+    next();
+});
+
+const banner = `Clickjacking Demo`;
+
+console.log(banner);
+
+const attackerPort = 6660;
+attackerServer.listen(attackerPort, () => {
+    attackerLog(`listening on port ${attackerPort}`);
+});
+
+const targetPort = 3333;
+targetServer.listen(targetPort, () => {
+    targetLog(`listening on port ${targetPort}`);
+});

@@ -1,5 +1,5 @@
 {
-  "name": "web-demo-exemplar",
+  "name": "clickjacking-demo",
   "version": "1.0.0",
   "main": "server.js",
   "type": "module",
@@ -7,8 +7,7 @@
     "clean": "rm -rf ./node_modules",
     "clean-install": "npm run clean; npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development node server.js",
-    "clickjacking-demo": "NODE_ENV=development node clickjacking/server.js"
+    "demo": "NODE_ENV=development node server.js"
   },
   "author": "",
   "license": "ISC",
