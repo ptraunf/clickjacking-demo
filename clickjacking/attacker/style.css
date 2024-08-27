@@ -1,7 +1,7 @@
 body {
     --primary-font-color: #a3d3f3;
     --background-color: #0a0a40;
-    --font-size: calc(10px + 2vmin);
+    --font-size: calc(8px + 2vmin);
 
     font-family: monospace;
     color: var(--primary-font-color);

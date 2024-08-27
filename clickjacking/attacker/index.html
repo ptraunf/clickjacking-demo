@@ -5,16 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta
             name="description"
-            content="Exemplar Typescript Project"
+            content="Clickjacking Demo"
     />
     <link rel="icon"
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😈</text></svg>">
     <link rel="stylesheet" href="/style.css"/>
 
     <style>
+        #layout {
+            display: flex;
+            flex-direction: column;
+            flex-flow: column wrap;
+        }
+
+        #about {
+            flex: 1 1 auto;
+            height: 100%;
+        }
+
         #demo-container {
-            postition: absolute;
+            flex: 1 1 auto;
             margin: 10vmin;
+            height: 100%;
         }
 
         #bait-button {
@@ -33,6 +45,7 @@
             opacity: 0.4;
             z-index: 2;
         }
+
         label {
             font-size: small;
         }
@@ -43,16 +56,21 @@
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <h1>Clickjacking Demo</h1>
 <hr/>
-<div id="demo-container">
+<div id="layout">
+    <span id="about">
+       When you try to click this button, notice which domain triggers the event.
+    </span>
+    <div id="demo-container">
 
-    <p>You're a winner!</p>
+        <p>You're a winner!</p>
 
-    <button id="bait-button" onclick="onButtonClick">Click here to win $1 Trillion!!!</button>
-    <iframe id="target-iframe" src="http://localhost:54321/target.html">
-    </iframe>
-    <div>
-        <label for="opacity-slider">Adjust iframe opacity:</label>
-        <input type="range" min=".0001" max="1" step=".01" class="slider" id="opacity-slider">
+        <button id="bait-button" onclick="onButtonClick">Click here to win $1 Trillion!!!</button>
+        <iframe id="target-iframe" src="http://localhost:54321/target.html">
+        </iframe>
+        <div>
+            <label for="opacity-slider">Adjust iframe opacity:</label>
+            <input type="range" min=".0001" max="1" step=".01" class="slider" id="opacity-slider">
+        </div>
     </div>
 </div>
 <script defer="" type="text/javascript">
@@ -64,6 +82,7 @@
         console.log(`Changing opacity to ${event.target.value}`);
         document.getElementById("target-iframe").style.opacity = event.target.value;
     }
+
     document.getElementById("opacity-slider").addEventListener("input", updateOpacity);
     document.getElementById("opacity-slider").addEventListener("change", updateOpacity);
 </script>
