@@ -26,7 +26,7 @@ const banner = `Clickjacking Demo`;
 
 console.log(banner);
 
-const attackerPort = 12345;
+const attackerPort = 6660;
 attackerServer.listen(attackerPort, () => {
     attackerLog(`listening on port ${attackerPort}`);
 });
