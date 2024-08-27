@@ -10,7 +10,7 @@
     "build:attacker:dev": "NODE_ENV=development webpack --mode=development --config webpack.attacker.js",
     "build:attacker:prod": "NODE_ENV=production webpack --mode=production --config webpack.attacker.js",
     "build:dev": "npm build:attacker:dev",
-    "build": "npm build:attacker:prod",
+    "build": "npm run build:attacker:prod",
     "demo": "npm run build:dev && NODE_ENV=development node server.js",
     "preview:attacker": "npm run build && cd attacker && wrangler pages dev ./dist",
     "preview:target" : "cd target && wrangler pages dev ./frontend",
