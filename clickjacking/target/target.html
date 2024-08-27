@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+    <title>Target Site</title>
+    <style>
+        body {
+            color: red;
+            font-size: calc(10px + 2vmax);
+        }
+        #target-iframe {
+
+        }
+        #target-button {
+            margin: 0;
+            padding: 0;
+            width: 128px;
+            height: 48px;
+        }
+    </style>
+</head>
+<body>
+    <button id="target-button" >Target Submit</button>
+
+    <p>This site is the victim of clickjacking!</p>
+<script>
+    document.getElementById("target-button").addEventListener("click", (event) => {
+        alert("Target Button Clicked!");
+    });
+</script>
+</body>
+</html>

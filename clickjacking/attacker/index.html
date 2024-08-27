@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta
+            name="description"
+            content="Exemplar Typescript Project"
+    />
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😈</text></svg>">
+    <link rel="stylesheet" href="/style.css"/>
+
+    <style>
+        #demo-container {
+            postition: absolute;
+            margin: 10vmin;
+        }
+
+        #bait-button {
+            position: absolute;
+            z-index: 1;
+            margin-top: 1vmin;
+            margin-left: 1vmin;
+            width: 128px;
+            height: 48px;
+        }
+
+        #target-iframe {
+            position: relative;
+            margin-top: 0;
+            margin-left: 0;
+            opacity: 0.4;
+            z-index: 2;
+        }
+        label {
+            font-size: small;
+        }
+    </style>
+    <title>iframe demos</title>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<h1>Clickjacking Demo</h1>
+<hr/>
+<div id="demo-container">
+
+    <p>You're a winner!</p>
+
+    <button id="bait-button" onclick="onButtonClick">Click here to win $1 Trillion!!!</button>
+    <iframe id="target-iframe" src="http://localhost:54321/target.html">
+    </iframe>
+    <div>
+        <label for="opacity-slider">Adjust iframe opacity:</label>
+        <input type="range" min=".0001" max="1" step=".01" class="slider" id="opacity-slider">
+    </div>
+</div>
+<script defer="" type="text/javascript">
+    function onButtonClick(event) {
+        alert("Clicked the button!");
+    }
+
+    function updateOpacity(event) {
+        console.log(`Changing opacity to ${event.target.value}`);
+        document.getElementById("target-iframe").style.opacity = event.target.value;
+    }
+    document.getElementById("opacity-slider").addEventListener("input", updateOpacity);
+    document.getElementById("opacity-slider").addEventListener("change", updateOpacity);
+</script>
+</body>
+</html>

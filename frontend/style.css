@@ -1,0 +1,11 @@
+body {
+    --primary-font-color: #a3d3f3;
+    --background-color: #0a0a40;
+    --font-size: calc(10px + 2vmax);
+
+    font-family: monospace;
+    color: var(--primary-font-color);
+    background-color: var(--background-color);
+    font-size: var(--font-size);
+}
+
