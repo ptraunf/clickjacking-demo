@@ -1,15 +1,9 @@
-import { CspOptions } from 'csp-nonce-sense';
-
-interface Env {
-    ALLOWED_FRAME_SRC: string;
-    ALLOWED_FRAME_ANCESTORS: string;
-}
-export const onRequest: PagesFunction<Env> = async (context) => {
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.onRequest = void 0;
+const onRequest = async (context) => {
     const response = await context.next();
-
-    const csp =
-        "default-src 'self' ; " +
+    const csp = "default-src 'self' ; " +
         `script-src 'self' 'unsafe-inline' ; ` +
         `style-src 'self' ;` +
         `frame-src ${context.env.ALLOWED_FRAME_SRC} ; ` +
@@ -25,6 +19,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     response.headers.set('Expires', '0');
     response.headers.set('X-Content-Type-Options', 'nosniff');
     response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubdomains');
-
     return response;
-}
+};
+exports.onRequest = onRequest;

@@ -1,3 +1,5 @@
+import { CspOptions } from 'csp-nonce-sense';
+
 interface Env {
     ALLOWED_FRAME_ANCESTORS: string;
     ALLOWED_ORIGIN: string;
@@ -27,3 +29,4 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
     return response;
 }
+

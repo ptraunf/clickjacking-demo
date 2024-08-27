@@ -2,7 +2,6 @@
   "name": "clickjacking-demo",
   "version": "1.0.0",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "clean": "rm -rf ./attacker/dist/",
     "clean-node-modules": "find . -type d -name \"node_modules\" -exec rm -rf {} \\;",
@@ -31,6 +30,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240729.0",
     "css-loader": "^7.1.2",
+    "csp-nonce-sense": "file:../csp-nonce-sense/dist",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.1",
     "webpack": "^5.93.0",
