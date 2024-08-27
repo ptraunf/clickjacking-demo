@@ -57,7 +57,7 @@
 <hr/>
 <div id="layout">
     <span id="about">
-       When you try to click this button, notice which domain triggers the event.
+       When you try to click this button, notice which origin triggers the event.
     </span>
     <div id="demo-container">
 
@@ -83,8 +83,6 @@
     }
 
     function handleVisibilityCheckboxClicked(checkbox) {
-
-        console.log(`Toggling iframe's visibility to ${checkbox.checked}`);
         if (!checkbox.checked) {
             document.getElementById('target-iframe').style.zIndex = "1";
             document.getElementById('bait-button').style.zIndex = "2";
