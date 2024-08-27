@@ -3,7 +3,8 @@ In this demo, the attacker's website (on `http://localhost:6660`) embeds a vulne
 
 When the user attempts to click the button, the target website is clicked instead, as indicated by the alert message.
 
-1. Run 
+## Run the Demo
+1. Execute the commands to copy this project to your local machine, install dependencies, and start the servers:
 ```shell
 git clone https://github.com/pete-pub-prof/clickjacking-demo.git
 cd clickjacking-demo
@@ -11,13 +12,13 @@ npm install
 npm run demo
 ```
 
-2. Navigate a browser to `http://localhost:6660` (the "attacker's" website)
+2. Navigate a browser to `http://localhost:6660` (the "attacker's" website).
 
 3. Click the button - who could resist?
 
 ![tempting-button](screenshots/clickjack-demo-button.png)
 
-Note the vulnerable target website's port number (3333) in the alert that is shown:
+Note the alert is from the victim's origin, not the one in your URL bar!
 ![clickjacking-alert](screenshots/clickjack-demo-alert.png)
 
 ## Clickjacking Mitigations
