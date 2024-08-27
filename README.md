@@ -1,18 +1,23 @@
 # Clickjacking Demo
-In this demo, the "attacker's" website (on `http://localhost:12345`) embeds a vulnerable target website (on `http://localhost:12345`) in a translucent iframe and places it over a button which the user is invited to click.
+In this demo, the "attacker's" website (on `http://localhost:66660`) embeds a vulnerable target website (on `http://localhost:3333`) in a translucent iframe and places it over a button which the user is invited to click.
 When the user attempts to click the button, the target website is clicked instead, as indicated by the alert message.
 
 1. Run 
 ```shell
-npm run clickjacking-demo
+git clone https://github.com/pete-pub-prof/clickjacking-demo.git
+cd clickjacking-demo
+npm install
+npm run demo
 ```
+
 2. Navigate a browser to `http://localhost:6660` (the "attacker's" website)
 3. Click the button 
 
 ## Clickjacking Mitigations
+
 ### Security Headers 
 
-#### Effect of CSP directives:
+#### CSP directives:
   - `frame-src`
   - `frame-ancestors`
 
