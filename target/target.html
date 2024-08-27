@@ -10,7 +10,7 @@
         body {
             color: red;
             font-size: calc(10px + 2vmax);
-            background-color: #faebc9;
+            background-color: #99ccff;
             opacity: 100%;
         }
         #target-button {
@@ -25,7 +25,7 @@
 <body>
     <button id="target-button" >Target Submit</button>
 
-    <p>This site is the victim of clickjacking!</p>
+    <p>This site is vulnerable to clickjacking!</p>
 <script>
     document.getElementById("target-button").addEventListener("click", (event) => {
         alert("Target Button Clicked!");

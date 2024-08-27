@@ -13,8 +13,12 @@ npm run demo
 
 2. Navigate a browser to `http://localhost:6660` (the "attacker's" website)
 
+3. Click the button - who could resist?
 
-3. Click the button 
+![tempting-button](screenshots/clickjack-demo-button.png)
+
+Note the vulnerable target website's port number (3333) in the alert that is shown:
+![clickjacking-alert](screenshots/clickjack-demo-alert.png)
 
 ## Clickjacking Mitigations
 
