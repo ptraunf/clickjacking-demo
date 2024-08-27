@@ -7,7 +7,10 @@
     "clean": "rm -rf ./node_modules",
     "clean-install": "npm run clean; npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "demo": "NODE_ENV=development node server.js"
+    "demo": "NODE_ENV=development node server.js",
+    "deploy:attacker": "cd attacker && wrangler pages deploy",
+    "deploy:target": "cd target && wrangler pages deploy",
+    "deploy": "npm run deploy:target && npm run deploy:attacker"
   },
   "author": "",
   "license": "ISC",
