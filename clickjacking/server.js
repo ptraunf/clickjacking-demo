@@ -12,20 +12,13 @@ function attackerLog(...args) {
 
 attackerServer.use(express.static('clickjacking/attacker'));
 attackerServer.use((req, res, next) => {
-    attackerLog(`${req.method} ${req.originalUrl}}`);
+    attackerLog(`${req.method} ${req.originalUrl}`);
     next()
-})
-
+});
 
 targetServer.use(express.static('clickjacking/target'));
 targetServer.use((req, res, next) => {
     targetLog(`${req.method} ${req.originalUrl}`);
-    next();
-})
-
-targetServer.post("/submit", (req, res, next) => {
-    targetLog(`Received POST Request:\n${req.body}`);
-    res.send("OK");
     next();
 });
 
@@ -41,4 +34,4 @@ attackerServer.listen(attackerPort, () => {
 const targetPort = 54321;
 targetServer.listen(targetPort, () => {
     targetLog(`listening on port ${targetPort}`);
-})
+});

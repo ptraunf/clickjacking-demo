@@ -15,7 +15,6 @@
         #layout {
             display: flex;
             flex-direction: column;
-            flex-flow: column wrap;
         }
 
         #about {
@@ -67,6 +66,11 @@
         <button id="bait-button" onclick="onButtonClick">Click here to win $1 Trillion!!!</button>
         <iframe id="target-iframe" src="http://localhost:54321/target.html">
         </iframe>
+
+        <div>
+            <label for="target-iframe-visible">iframe in front of button?</label>
+            <input type="checkbox" id="target-iframe-visible" onclick="handleVisibilityCheckboxClicked(this)" checked>
+        </div>
         <div>
             <label for="opacity-slider">Adjust iframe opacity:</label>
             <input type="range" min=".0001" max="1" step=".01" class="slider" id="opacity-slider">
@@ -78,13 +82,25 @@
         alert("Clicked the button!");
     }
 
+    function handleVisibilityCheckboxClicked(checkbox) {
+
+        console.log(`Toggling iframe's visibility to ${checkbox.checked}`);
+        if (!checkbox.checked) {
+            document.getElementById('target-iframe').style.zIndex = "1";
+            document.getElementById('bait-button').style.zIndex = "2";
+        } else {
+            document.getElementById('target-iframe').style.zIndex = "2";
+            document.getElementById('bait-button').style.zIndex = "1";
+        }
+    }
+
     function updateOpacity(event) {
-        console.log(`Changing opacity to ${event.target.value}`);
         document.getElementById("target-iframe").style.opacity = event.target.value;
     }
 
     document.getElementById("opacity-slider").addEventListener("input", updateOpacity);
     document.getElementById("opacity-slider").addEventListener("change", updateOpacity);
+    document.getElementById("bait-button").addEventListener("click", onButtonClick)
 </script>
 </body>
 </html>
